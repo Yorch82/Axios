@@ -2,8 +2,9 @@ const pizarra = document.querySelector(".canvas");
 const todasRazas = document.getElementById("todasRazas");
 const imagenRandom = document.getElementById("imagenRandom");
 const chihuahua = document.getElementById("chihuahua")
+const buscaPerrete = document.getElementById("buscaPerrete")
 
-// Imprimir por consola la lista de razas de todos los perros.
+// Imprimir la lista de razas de todos los perros.
 
 todasRazas.addEventListener('click', () => {
     pintaTodasRazas();
@@ -21,7 +22,7 @@ function pintaTodasRazas() {
     .catch((err) => console.error(err));   
 }
 
-// // Imprimir por consola una imagen random de una raza.
+// // Imprimir una imagen random de una raza.
 
 imagenRandom.addEventListener('click', () => {
     pintaImagenRandom();
@@ -36,23 +37,37 @@ function pintaImagenRandom () {
     })
     .catch((err) => console.error(err));
 }
-// // Imprimir por consola todas las imágenes de una raza concreta.
+// // Imprimir todas las imágenes de una raza concreta.
 
 chihuahua.addEventListener('click', () => {
     pintaChihuahua();
 })
 
-function pintaChihuahua () {
-    axios.get("https://dog.ceo/api/breed/chihuahua/images")
-    .then((res) => {
-        let imagenChihuahua = res.data.message
-        console.log(imagenChihuahua)
+function pintaChihuahua (perrete) {
+    if (perrete == undefined){
+        axios.get("https://dog.ceo/api/breed/chihuahua/images")
+        .then((res) => {
+        let imagenChihuahua = res.data.message        
         pizarra.innerHTML = ""
         imagenChihuahua.forEach(element => {
             pizarra.innerHTML += `<img style="height: 100px; width: 100px;" src="${element}"  alt="Chihuahua">`;
-        });
-            
-                
+        });                
     })
     .catch((err) => console.error(err));
+    } else {
+        axios.get(`https://dog.ceo/api/breed/${perrete}/images`)
+        .then((res) => {
+        let imagen = res.data.message        
+        pizarra.innerHTML = ""
+        imagen.forEach(element => {
+            pizarra.innerHTML += `<img style="height: 100px; width: 100px;" src="${element}"  alt="Chihuahua">`;
+        });                
+    })
+    .catch((err) => console.error(err));
+}  
 }
+// Adapta las urls que ya tenías para que puedas pasarle argumentos.
+
+buscaPerrete.addEventListener('click', () => {
+    pintaChihuahua(busca.value);
+})
