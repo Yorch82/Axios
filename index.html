@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios</title>
+    <link rel="stylesheet" href="./bootstrap.min.css">
+</head>
+<body>
+    <header class="page-header">
+        <h1 id="navbars">Práctica Axios</h1>
+    </header>
+    <div class="bs-component">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">Perretes</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor01">
+              <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                  <a class="nav-link active" id="todasRazas" href="#">Todas las razas</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" id="imagenRandom">Imagen random</a>
+                </li>
+                <li class="nav-item d-flex flex-wrap">
+                  <a class="nav-link" href="#" id="chihuahua">Chihuahua</a>
+                </li>                                
+              </ul>
+              <form class="d-flex">
+                <input class="form-control me-sm-2" type="text" placeholder="Buscar">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
+              </form>
+            </div>
+          </div>
+        </nav>
+        <div class="canvas d-flex flex-wrap"></div> 
+         
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
